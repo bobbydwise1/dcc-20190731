@@ -26,24 +26,24 @@ const makeMatrix = (n,k) => {
 const findLowest = (yourMatrix) => {
   let lowest = yourMatrix[0][0];
   for (y=0; y < yourMatrix.length; y++) {
-    console.log('loop(y,x) =', y, ', ', x)
     for (x=0; x < yourMatrix[y].length; x++) {
       if (lowest > yourMatrix[y][x]) {
         lowest = yourMatrix[y][x];
       }
-    console.log('loop x lowest = ',lowest)
     }
-    console.log('loop y lowest = ',lowest)
   }
   return lowest;
 }
 
-let test = makeMatrix(3,3);
-console.log('testArray = ', test);
+let test = makeMatrix(makeRandom(2,10),makeRandom(2,10));
+//console.log('testArray = ', test);
 let lowestPrice = findLowest(test);
-console.log('lowest Price = ', lowestPrice);
+//console.log('lowest Price = ', lowestPrice);
 
 $(document).ready(function() {
-  $('#output-section-1').text(JSON.stringify(test));
+
+  for (y=0; y < test.length; y++) {
+    $('#output-section-1').append('<p>'+JSON.stringify(test[y])+'</p>');
+  }
   $('#output-section-2').text(lowestPrice);
 });
