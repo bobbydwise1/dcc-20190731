@@ -23,13 +23,27 @@ const makeMatrix = (n,k) => {
   return finalArray;
 };
 
-console.log(makeMatrix(3,3))
-
 const findLowest = (yourMatrix) => {
-  
+  let lowest = yourMatrix[0][0];
+  for (y=0; y < yourMatrix.length; y++) {
+    console.log('loop(y,x) =', y, ', ', x)
+    for (x=0; x < yourMatrix[y].length; x++) {
+      if (lowest > yourMatrix[y][x]) {
+        lowest = yourMatrix[y][x];
+      }
+    console.log('loop x lowest = ',lowest)
+    }
+    console.log('loop y lowest = ',lowest)
+  }
+  return lowest;
 }
 
+let test = makeMatrix(3,3);
+console.log('testArray = ', test);
+let lowestPrice = findLowest(test);
+console.log('lowest Price = ', lowestPrice);
+
 $(document).ready(function() {
-  $('#output-section-1').text(1);
-  $('#output-section-2').text(2);
+  $('#output-section-1').text(JSON.stringify(test));
+  $('#output-section-2').text(lowestPrice);
 });
